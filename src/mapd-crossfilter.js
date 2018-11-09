@@ -261,7 +261,7 @@ export function replaceRelative(sqlStr) {
   return withNow
 }
 
-;(function(exports) {
+function exportFunc(exports) {
   crossfilter.version = "1.3.11"
   exports.resultCache = resultCache
   exports.crossfilter = crossfilter
@@ -2726,4 +2726,8 @@ export function replaceRelative(sqlStr) {
       ? setDataAsync(arguments[0], arguments[1], arguments[2]) // dataConnector, dataTable
       : crossfilter
   }
-})((typeof exports !== "undefined" && exports) || this)
+}
+
+var cf = {};
+exportFunc(cf);
+export {cf as crossfilter};
